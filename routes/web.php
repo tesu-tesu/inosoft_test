@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/kendaraan', [App\Http\Controllers\KendaraanController::class, 'index'])->name('kendaraan_index');
+Route::get('/stok_kendaraan', [App\Http\Controllers\KendaraanController::class, 'stok'])->name('stok_kendaraan');

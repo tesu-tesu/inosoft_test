@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\MotorService;
-use Exception;
+use App\Services\KendaraanService;
 use Illuminate\Http\Request;
 
-class MobilController extends Controller
+class KendaraanController extends Controller
 {
-    protected $motorService;
+    protected $kendaraan;
 
-    public function __construct(MotorService $motorService)
+    public function __construct(KendaraanService $kendaraan)
     {
-        $this->motorService = $motorService;
+        $this->kendaraan = $kendaraan;
     }
 
     public function index()
@@ -20,7 +19,7 @@ class MobilController extends Controller
         $result = ['status' => 200];
 
         try {
-            $result['data'] = $this->motorService->getAll();
+            $result['data'] = $this->kendaraan->gabungKendaraan();
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
@@ -29,5 +28,5 @@ class MobilController extends Controller
         }
 
         return response()->json($result, $result['status']);
-    }
+    } 
 }
