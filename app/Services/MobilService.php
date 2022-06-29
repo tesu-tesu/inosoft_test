@@ -2,45 +2,46 @@
 
 namespace App\Services;
 
-use App\Repositories\MotorRepository;
+use App\Repositories\MobilRepository;
 use Exception;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Nette\InvalidArgumentException;
 
-class MotorService
+class MobilService
 {
    /**
-    * @var $motorRepository
+    * @var $mobilRepository
     */
-   protected $motorRepository;
+   protected $mobilRepository;
 
    /**
     * PostService constructor
     * 
-    * @param MotorRepository $motorRepository;
+    * @param MobilRepository $mobilRepository;
     */
 
-   public function __construct(MotorRepository $motorRepository)
+   public function __construct(MobilRepository $mobilRepository)
    {
-      $this->motorRepository = $motorRepository;
+      $this->mobilRepository = $mobilRepository;
    }
 
    public function getAll()
    {
-      return $this->motorRepository->getAll();
+      return $this->mobilRepository->getAll();
    }
 
-   public function saveMotorData($data)
+   public function saveMobilData($data)
    {
       $validator = Validator::make($data, [
          'tahun_keluaran' => 'required',
          'warna' => 'required',
          'harga' => 'required',
          'mesin' => 'required',
-         'tipe_suspensi' => 'required',
-         'tipe_transmisi' => 'required',
+         'kapasitas_penumpang' => 'required',
+         'tipe' => 'required',
          'status_terjual' => 'required'
       ]);
 
@@ -48,21 +49,21 @@ class MotorService
          throw new InvalidArgumentException($validator->errors()->first());
       }
 
-      $result = $this->motorRepository->save($data);
+      $result = $this->mobilRepository->save($data);
 
       return $result;
    }
 
    public function getById($id)
    {
-      return $this->motorRepository->getById($id);
+      return $this->mobilRepository->getById($id);
    }
 
    public function deleteById($id)
    {
 
       try {
-         $motor = $this->motorRepository->deleteById($id);
+         $mobil = $this->mobilRepository->deleteById($id);
       } catch (Exception $e) {
          DB::rollBack();
          Log::info($e->getMessage());
@@ -70,9 +71,9 @@ class MotorService
          throw new InvalidArgumentException('Unable to delete post data');
       }
 
-      return $motor;
+      return $mobil;
    }
-   
+
    public function updateById($data, $id)
    {
       $validator = Validator::make($data, [
@@ -80,8 +81,8 @@ class MotorService
          'warna' => 'required',
          'harga' => 'required',
          'mesin' => 'required',
-         'tipe_suspensi' => 'required',
-         'tipe_transmisi' => 'required',
+         'kapasitas_penumpang' => 'required',
+         'tipe' => 'required',
          'status_terjual' => 'required'
       ]);
 
@@ -90,13 +91,13 @@ class MotorService
       }
 
       try {
-         $motor = $this->motorRepository->updateById($data, $id);
+         $mobil = $this->mobilRepository->updateById($data, $id);
       } catch (Exception $e) {
          Log::info($e->getMessage());
 
-         throw new InvalidArgumentException('Unable to update motor data');
+         throw new InvalidArgumentException('Unable to delete post data');
       }
 
-      return $motor;
+      return $mobil;
    }
 }

@@ -19,7 +19,7 @@ class KendaraanController extends Controller
         $result = ['status' => 200];
 
         try {
-            $result['data'] = $this->kendaraan->gabungKendaraan();
+            $result['data'] = $this->kendaraan->getAll();
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
@@ -27,6 +27,40 @@ class KendaraanController extends Controller
             ];
         }
 
-        return response()->json($result, $result['status']);
+        return response($result);
     } 
+
+    public function stok()
+    {    
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->kendaraan->getStok();
+        } catch (Exception $e) {
+            $result = [
+                'status' => 500,
+                'errorMessage' => $e->getMessage(),
+            ];
+        }
+
+        return response($result);
+    }
+
+    public function beli($id)
+    {
+        
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->kendaraan->beli($id);
+            $result['message'] = "Pembelian Berhasil";
+        } catch (Exception $e) {
+            $result = [
+                'status' => 500,
+                'errorMessage' => $e->getMessage(),
+            ];
+        }
+
+        return response($result);
+    }
 }
