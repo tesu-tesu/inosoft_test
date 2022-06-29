@@ -67,7 +67,7 @@ class MotorService
          DB::rollBack();
          Log::info($e->getMessage());
 
-         throw new InvalidArgumentException('Unable to delete post data');
+         throw new InvalidArgumentException('Data Tidak Berhasil Dihapus');
       }
 
       return $motor;
@@ -94,7 +94,7 @@ class MotorService
       } catch (Exception $e) {
          Log::info($e->getMessage());
 
-         throw new InvalidArgumentException('Unable to update motor data');
+         throw new InvalidArgumentException('Data Tidak Berhasil Diupdate');
       }
 
       return $motor;

@@ -39,8 +39,6 @@ class KendaraanService
         $array[] = $this->motor->getStok();
         $array[] = $this->mobil->getStok();
 
-        $result = json_encode($array, JSON_PRETTY_PRINT);
-
         return $array;
     }
 
@@ -70,7 +68,6 @@ class KendaraanService
             $result = $this->penjualan->beli($pembelian);
 
             return $result;
-        
     }
 
     public function laporan()
@@ -79,14 +76,12 @@ class KendaraanService
         
         $motor = [];
         $mobil = [];
-        $index_motor = 0;
-        $index_mobil = 0;
 
         foreach ($penjualan as $row) {
             if ($row->jenis == "mobil" ) {
-                $mobil[$index_mobil++] = $row;
+                $mobil[] = $row;
             }  else {
-                $motor[$index_motor++] = $row;
+                $motor[] = $row;
             }
         }
 

@@ -68,7 +68,7 @@ class MobilService
          DB::rollBack();
          Log::info($e->getMessage());
 
-         throw new InvalidArgumentException('Unable to delete post data');
+         throw new InvalidArgumentException('Data Tidak Berhasil Dihapus');
       }
 
       return $mobil;
@@ -95,7 +95,7 @@ class MobilService
       } catch (Exception $e) {
          Log::info($e->getMessage());
 
-         throw new InvalidArgumentException('Unable to delete post data');
+         throw new InvalidArgumentException('Data Tidak Berhasil Diupdate');
       }
 
       return $mobil;

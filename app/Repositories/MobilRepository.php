@@ -56,7 +56,6 @@ class MobilRepository
         $mobil = $this->mobil->find($id);
         $mobil->delete();
 
-
         return $mobil;
     }
 
