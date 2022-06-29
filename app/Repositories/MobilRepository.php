@@ -79,7 +79,7 @@ class MobilRepository
     
     public function getStok()
     {
-        $mobil = Mobil::where('status_terjual', '=', "1")
+        $mobil = Mobil::where('status_terjual', '=', 1)
             ->get();
 
         return $mobil;
@@ -87,6 +87,9 @@ class MobilRepository
 
     public function ubahStatus($id)
     {
+        if (!$mobil = $this->mobil->find($id)) {
+            return false;
+        }
         $mobil = $this->mobil->find($id);
         $mobil->status_terjual = 0; //0 = terjual
         

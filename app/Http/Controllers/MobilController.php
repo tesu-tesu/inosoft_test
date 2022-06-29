@@ -20,11 +20,12 @@ class MobilController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Diambil";
             $result['data'] = $this->mobilService->getAll();
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'errorMessafe' => $e->getMessage(),
+                'message' => $e->getMessage(),
             ];
         }
 
@@ -46,11 +47,12 @@ class MobilController extends Controller
         $result = ['status' => 200];
         
         try {
+            $result['message'] = "Data Berhasil Ditambahkan";
             $result['data'] = $this->mobilService->saveMobilData($data);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);
@@ -61,11 +63,12 @@ class MobilController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Diambil";
             $result['data'] = $this->mobilService->getById($id);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);
@@ -76,11 +79,12 @@ class MobilController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Dihapus";
             $result['data'] = $this->mobilService->deleteById($id);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);
@@ -101,11 +105,12 @@ class MobilController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Diupdate";
             $result['data'] = $this->mobilService->updateById($data, $id);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);

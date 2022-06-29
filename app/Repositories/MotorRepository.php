@@ -78,7 +78,7 @@ class MotorRepository
 
     public function getStok()
     {
-        $motor = Motor::where('status_terjual', '=', "1")
+        $motor = Motor::where('status_terjual', '=', 1)
             ->get();
 
         return $motor;

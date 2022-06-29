@@ -11,5 +11,5 @@ class Penjualan extends Eloquent
     use HasFactory;
     protected $connection = 'mongodb';
     protected $collection = 'penjualan';
-    protected $fillable = ['id_kendaraan', 'tgl_jual', 'harga'];
+    protected $fillable = ['id_kendaraan', 'tgl_jual', 'harga', 'jenis'];
 }

@@ -28,9 +28,15 @@ class PenjualanRepository
         $penjualan->id_kendaraan = $data['id_kendaraan'];  
         $penjualan->tgl_jual = $data['tgl_jual'];
         $penjualan->harga =$data['harga'];
+        $penjualan->jenis =$data['jenis'];
 
         $penjualan->save();
         return $penjualan->fresh();
+    }
+
+    public function getAll()
+    {
+        return $this->penjualan->get();
     }
 }
 

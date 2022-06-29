@@ -42,5 +42,6 @@ Route::group(['prefix' => 'kendaraan'], function () {
     Route::get('/', [App\Http\Controllers\KendaraanController::class, 'index'])->name('kendaraan_index');
     Route::get('/stok', [App\Http\Controllers\KendaraanController::class, 'stok'])->name('kendaraan_stok');
     Route::get('/beli/{id}', [App\Http\Controllers\KendaraanController::class, 'beli'])->name('kendaraan_beli');
+    Route::get('/laporan_penjualan', [App\Http\Controllers\KendaraanController::class, 'laporan'])->name('kendaraan_laporan_penjualan');
 });
 

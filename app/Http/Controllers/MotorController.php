@@ -20,15 +20,16 @@ class MotorController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Diambil";
             $result['data'] = $this->motorService->getAll();
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'errorMessafe' => $e->getMessage(),
+                'message' => $e->getMessage(),
             ];
         }
 
-        return response()->json($result, $result['status']);
+        return response()->json($result);
     }
 
     public function store(Request $request)
@@ -46,11 +47,12 @@ class MotorController extends Controller
         $result = ['status' => 200];
         
         try {
+            $result['message'] = "Data Berhasil Ditambahkan";
             $result['data'] = $this->motorService->saveMotorData($data);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);
@@ -61,11 +63,12 @@ class MotorController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Diambil";
             $result['data'] = $this->motorService->getById($id);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);
@@ -76,11 +79,12 @@ class MotorController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Dihapus";
             $result['data'] = $this->motorService->deleteById($id);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);
@@ -101,11 +105,12 @@ class MotorController extends Controller
         $result = ['status' => 200];
 
         try {
+            $result['message'] = "Data Berhasil Diupdate";
             $result['data'] = $this->motorService->updateById($data, $id);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
-                'error' => $e->getMessage()
+                'message' => $e->getMessage()
             ];
         }
         return response()->json($result, $result['status']);

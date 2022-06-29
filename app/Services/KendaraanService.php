@@ -46,16 +46,16 @@ class KendaraanService
 
     public function beli($id)
     {
-        try {
             $pembelian = [];
             
             $kendaraan = $this->motor->getById($id);
-            
             if (!$kendaraan->all()) {
                 $kendaraan = $this->mobil->getById($id);
                 $pembelian['jenis'] = 'mobil';
-            } else {
-                throw new \Exception('Error message');
+            } 
+
+            if(!$kendaraan->all() || $kendaraan[0]->status_terjual == 0) {
+                return false;
             }
             $timenow = Carbon::now()->format('Y-m-d H:i:s');
             $pembelian['id_kendaraan'] = $kendaraan[0]->_id;
@@ -65,15 +65,35 @@ class KendaraanService
             $changeStatus = $this->mobil->ubahStatus($id);
             if ($changeStatus == false) {
                 $this->motor->ubahStatus($id);
-                $kendaraan['jenis'] = 'motor';
+                $pembelian['jenis'] = 'motor';
             }
             $result = $this->penjualan->beli($pembelian);
 
             return $result;
-        } catch (Exception $e) {
-            Log::info($e->getMessage());
-            
-            throw new InvalidArgumentException('Unable to delete post data');
+        
+    }
+
+    public function laporan()
+    {
+        $penjualan = $this->penjualan->getAll();
+        
+        $motor = [];
+        $mobil = [];
+        $index_motor = 0;
+        $index_mobil = 0;
+
+        foreach ($penjualan as $row) {
+            if ($row->jenis == "mobil" ) {
+                $mobil[$index_mobil++] = $row;
+            }  else {
+                $motor[$index_motor++] = $row;
+            }
         }
+
+        $array = [];
+        $array[] = $motor;
+        $array[] = $mobil;
+
+        return $array;
     }
 }
