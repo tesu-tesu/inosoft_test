@@ -19,6 +19,19 @@ Kemudian dilakukan create project Laravel dengan melakukan command :
 ``composer create-project laravel/laravel {NamaApp}`` 
 pada cmd atau dapat mengikuti petunjuk dari dokumentasi resmi Laravel : https://laravel.com/docs/4.2/installation#:~:text=Via%20Download,all%20of%20the%20framework's%20dependencies
 
+### Mengclone Project Laravel
+Pada project ini dilakukan clone untuk menjalankan project yang terdapat di repository ini,
+Langkah clone Project Laravel dari Github :
+- Clone your project
+- Go to the folder application using cd command on your cmd or terminal
+- Run composer install on your cmd or terminal
+- Copy .env.example file to .env on the root folder. You can type copy .env.example .env if using command prompt Windows or cp .env.example .env if using terminal, - Ubuntu
+- Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
+- Run php artisan key:generate
+- Run php artisan migrate
+- Run php artisan serve
+- Go to http://localhost:8000/
+
 ### Menginstall MongoDB
 Panduan cara menginstall MongoDB untuk aplikasi Desktop windows dapat dilakukan mengikuti petunjuk sebagai berikut : 
 https://medium.com/@LondonAppBrewery/how-to-download-install-mongodb-on-windows-4ee4b3493514
