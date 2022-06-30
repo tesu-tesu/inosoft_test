@@ -42,6 +42,16 @@ untuk petunjuk konfigurasi dapat dilakukan mengikuti contoh berikut :
 https://www.youtube.com/watch?v=EM7xsp7KCUw
 
 
+## Install Postman
+Setelah Project Laravel dapat dijalankan pada server, kemudian dilakukan pengujian dengan menggunakan Postman untuk menguji API yang tersedia dalam project tersebut,
+Aplikasi postman dapat diunduh dari : https://www.postman.com/downloads/
+
+## Melakukan Unit Testing
+Postman adalah salah satu tools untuk melakukan unit testing pada aplikasi dengan melakukan penembakan pada API
+Untuk Unit Testing dapat dilakukan dengan menjalankan dokumentasi dari Postman pada : 
+https://documenter.getpostman.com/view/15588938/UzBvFiJL 
+kemudian dapat dijalankan pada Postman dari Browser atau Aplikasi Desktop
+
 ``pip install markdownify``
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
