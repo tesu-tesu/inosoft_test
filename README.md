@@ -1,6 +1,6 @@
 
 
-# Instalasi
+## Instalasi
 
 ### Instal Xampp dan PHP
 Menginstall aplikasi Xampp sebagai server untuk database MongoDB dan menginstall PHP 
@@ -18,6 +18,16 @@ untuk cara instalasi Composer dapat dilakukan seperti contoh berikut :
 Kemudian dilakukan create project Laravel dengan melakukan command : 
 ``composer create-project laravel/laravel`` 
 pada cmd atau dapat mengikuti petunjuk dari dokumentasi resmi Laravel : https://laravel.com/docs/4.2/installation#:~:text=Via%20Download,all%20of%20the%20framework's%20dependencies
+
+### Menginstall MongoDB
+Panduan cara menginstall MongoDB untuk aplikasi Desktop windows dapat dilakukan mengikuti petunjuk sebagai berikut : 
+https://medium.com/@LondonAppBrewery/how-to-download-install-mongodb-on-windows-4ee4b3493514
+
+## Konfigurasi Laravel dan MongoDB
+Setelah menginstall Laravel dan MongoDB, diperlukan konfigurasi untuk dapat menghubungkan project Laravel dan MongoDB sebagai database yang digunakan
+untuk petunjuk konfigurasi dapat dilakukan mengikuti contoh berikut : 
+https://www.youtube.com/watch?v=EM7xsp7KCUw
+
 
 ``pip install markdownify``
 
