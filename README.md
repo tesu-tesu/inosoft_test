@@ -16,7 +16,7 @@ untuk cara instalasi Composer dapat dilakukan seperti contoh berikut :
 
 ### Membuat Project Laravel
 Kemudian dilakukan create project Laravel dengan melakukan command : 
-``composer create-project laravel/laravel`` 
+``composer create-project laravel/laravel {NamaApp}`` 
 pada cmd atau dapat mengikuti petunjuk dari dokumentasi resmi Laravel : https://laravel.com/docs/4.2/installation#:~:text=Via%20Download,all%20of%20the%20framework's%20dependencies
 
 ### Menginstall MongoDB
