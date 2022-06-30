@@ -54,5 +54,8 @@ kemudian dapat dijalankan pada Postman dari Browser atau Aplikasi Desktop
 
 
 Tahapan Unit Testing :
-- Mel
+- Membuat user baru melalui API register 
+- Melakukan Login pada API login dan mendapatkan Token
+- Memasukkan Token pada Headers atau memasukkan Token pada Value dari Enviroment
+- Melakukan Testing
 
