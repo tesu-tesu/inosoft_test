@@ -49,6 +49,9 @@ class MotorController extends Controller
         try {
             $result['message'] = "Data Berhasil Ditambahkan";
             $result['data'] = $this->motorService->saveMotorData($data);
+            if (!$result['data']) {
+                throw new Exception('gagal');
+            }
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
@@ -65,6 +68,9 @@ class MotorController extends Controller
         try {
             $result['message'] = "Data Berhasil Diambil";
             $result['data'] = $this->motorService->getById($id);
+            if (!$result['data']) {
+                throw new Exception('gagal');
+            }
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
@@ -81,6 +87,9 @@ class MotorController extends Controller
         try {
             $result['message'] = "Data Berhasil Dihapus";
             $result['data'] = $this->motorService->deleteById($id);
+            if (!$result['data']) {
+                throw new Exception('gagal');
+            }
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
@@ -107,6 +116,9 @@ class MotorController extends Controller
         try {
             $result['message'] = "Data Berhasil Diupdate";
             $result['data'] = $this->motorService->updateById($data, $id);
+            if (!$result['data']) {
+                throw new Exception('gagal');
+            }
         } catch (Exception $e) {
             $result = [
                 'status' => 500,

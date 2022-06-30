@@ -56,11 +56,20 @@ class MobilService
 
    public function getById($id)
    {
-      return $this->mobilRepository->getById($id);
+      $mobil = $this->mobilRepository->getById($id);
+      if (!$mobil->all()) {
+         return false;
+      } else {
+         return $this->mobilRepository->getById($id);
+      }
    }
-
+   
    public function deleteById($id)
    {
+      $mobil = $this->mobilRepository->getById($id);
+      if (!$mobil->all()) {
+         return false;
+      }
 
       try {
          $mobil = $this->mobilRepository->deleteById($id);
@@ -76,6 +85,11 @@ class MobilService
 
    public function updateById($data, $id)
    {
+      $mobil = $this->mobilRepository->getById($id);
+      if (!$mobil->all()) {
+         return false;
+      }
+      
       $validator = Validator::make($data, [
          'tahun_keluaran' => 'required',
          'warna' => 'required',

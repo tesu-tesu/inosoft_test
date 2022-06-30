@@ -65,6 +65,9 @@ class MobilController extends Controller
         try {
             $result['message'] = "Data Berhasil Diambil";
             $result['data'] = $this->mobilService->getById($id);
+            if (!$result['data']) {
+                throw new Exception('gagal');
+            }
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
@@ -81,6 +84,9 @@ class MobilController extends Controller
         try {
             $result['message'] = "Data Berhasil Dihapus";
             $result['data'] = $this->mobilService->deleteById($id);
+            if (!$result['data']) {
+                throw new Exception('gagal');
+            }
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
@@ -107,6 +113,9 @@ class MobilController extends Controller
         try {
             $result['message'] = "Data Berhasil Diupdate";
             $result['data'] = $this->mobilService->updateById($data, $id);
+            if (!$result['data']) {
+                throw new Exception('gagal');
+            }
         } catch (Exception $e) {
             $result = [
                 'status' => 500,

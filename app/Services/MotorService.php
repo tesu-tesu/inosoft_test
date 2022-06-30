@@ -55,11 +55,19 @@ class MotorService
 
    public function getById($id)
    {
+      $motor = $this->motorRepository->getById($id);
+      if (!$motor->all()) {
+         return false;
+      }
       return $this->motorRepository->getById($id);
    }
 
    public function deleteById($id)
    {
+      $motor = $this->motorRepository->getById($id);
+      if (!$motor->all()) {
+         return false;
+      }
 
       try {
          $motor = $this->motorRepository->deleteById($id);
@@ -75,6 +83,11 @@ class MotorService
    
    public function updateById($data, $id)
    {
+      $motor = $this->motorRepository->getById($id);
+      if (!$motor->all()) {
+         return false;
+      }
+      
       $validator = Validator::make($data, [
          'tahun_keluaran' => 'required',
          'warna' => 'required',
