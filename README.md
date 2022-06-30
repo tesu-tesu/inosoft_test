@@ -57,5 +57,5 @@ Tahapan Unit Testing :
 - Membuat user baru melalui API register 
 - Melakukan Login pada API login dan mendapatkan Token
 - Memasukkan Token pada Headers atau memasukkan Token pada Value dari Enviroment
-- Melakukan Testing
+- Melakukan Testing pada masing masing API
 
