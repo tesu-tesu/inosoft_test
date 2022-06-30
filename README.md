@@ -14,6 +14,11 @@ untuk cara instalasi Composer dapat dilakukan seperti contoh berikut :
 [https://webhostmu.com/cara-install-xampp/](https://www.niagahoster.co.id/blog/cara-install-composer/)
 
 
+### Membuat Project Laravel
+Kemudian dilakukan create project Laravel dengan melakukan command : 
+``composer create-project laravel/laravel`` 
+pada cmd atau dapat mengikuti petunjuk dari dokumentasi resmi Laravel : https://laravel.com/docs/4.2/installation#:~:text=Via%20Download,all%20of%20the%20framework's%20dependencies
+
 ``pip install markdownify``
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
