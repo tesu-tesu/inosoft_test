@@ -2,8 +2,11 @@
 
 # Instalasi
 
-### Instal Xampp
-b application framework
+### Instal Xampp dan PHP
+Menginstall aplikasi Xampp sebagai server untuk database MongoDB dan menginstall PHP 
+Petunjuk instalasi Xampp beserta PHP dapat dilakukan seperti contoh berikut :
+https://webhostmu.com/cara-install-xampp/
+
 ``pip install markdownify``
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
